@@ -1,0 +1,12 @@
+.dashicons_reviews{ margin: 4px 10px 0 0; }
+#srm_review_chart_wrap{ float:left; width: 100%; margin: 20px 0; }
+.srm_review_rating, .srm_review_chart{ width: 40%; float: left;}
+.srm_review_chart{ margin-left: 10%; margin-top: -35px; }
+.srm_review_rating .srm_admin_label{ font-size: 130%; line-height: 1.5em; width: 100px; display: inline-block;}
+.srm_review_rating .srm_number{ font-size: 130%; line-height: 1.5em; font-weight: bold;}
+#rating_status{ background: #FFFFFF; border: 2px solid #000000; display: inline-block; font-size: 130%; padding: 10px 20px; margin-bottom: 20px; font-weight: bold;}
+span.review_status{ font-weight: bold;}
+.review_status.poor{ color: #FF0000; }
+.review_status.average{ color: #fcbd01; }
+.review_status.good{ color: #0000FF; }
+.review_status.excellent{ color: #008000; }
