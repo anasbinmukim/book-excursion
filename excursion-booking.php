@@ -43,6 +43,8 @@ class ExcursionBooking{
 	 */
 	public function init() {
 		//Excursion Booked Order Items
+		require_once('inc/excursion-settings-process.php');
+		//Excursion Booked Order Items
 		require_once('inc/excursion-orders.php');
 		//Excursion items for booking
 		require_once('inc/excursion-items.php');

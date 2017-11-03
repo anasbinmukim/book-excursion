@@ -7,10 +7,10 @@ add_action( 'init', 'exrb_register_excursion_order_cpt' );
  */
 function exrb_register_excursion_order_cpt() {
 	$labels = array(
-		'name'               => _x( 'Excursion Orders', 'post type general name', 'excursion_booking' ),
-		'singular_name'      => _x( 'Excursion Order', 'post type singular name', 'excursion_booking' ),
+		'name'               => _x( 'Excursion Booking Orders', 'post type general name', 'excursion_booking' ),
+		'singular_name'      => _x( 'Excursion Booking Order', 'post type singular name', 'excursion_booking' ),
 		'menu_name'          => _x( 'Booking', 'admin menu', 'excursion_booking' ),
-		'name_admin_bar'     => _x( 'Excursion Order', 'add new on admin bar', 'excursion_booking' ),
+		'name_admin_bar'     => _x( 'Excursion Booking Order', 'add new on admin bar', 'excursion_booking' ),
 		'add_new'            => _x( 'Add New', 'Excursion Order', 'excursion_booking' ),
 		'add_new_item'       => __( 'Add New Excursion Order', 'excursion_booking' ),
 		'new_item'           => __( 'New Excursion Order', 'excursion_booking' ),
@@ -34,7 +34,8 @@ function exrb_register_excursion_order_cpt() {
 		'capability_type'    => 'post',
 		'has_archive'        => true,
 		'hierarchical'       => false,
-		'menu_position'      => 100,
+		'menu_position'      => 10,
+		'menu_icon' => 'dashicons-calendar-alt',
 		'supports'           => array( 'title' )
 	);
 
