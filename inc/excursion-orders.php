@@ -22,7 +22,7 @@ function exrb_register_excursion_order_cpt() {
 		'not_found'          => __( 'No Excursion Orders found.', 'excursion_booking' ),
 		'not_found_in_trash' => __( 'No Excursion Orders found in Trash.', 'excursion_booking' )
 	);
-	$excursion_order_slug = esc_html(get_option('exrb_excursion_order_slug'));
+	$excursion_order_slug = esc_html(get_option('exrb_order_slug'));
 	$args = array(
 		'labels'             => $labels,
     'description'        => __( 'Description.', 'excursion_booking' ),

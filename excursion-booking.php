@@ -35,6 +35,7 @@ class ExcursionBooking{
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
     add_action( 'plugins_loaded', array( $this, 'init' ), 0 );
     add_action( 'admin_menu', array( $this, 'exrb_plugin_admin_menu' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'exrb_admin_style') );
 		//add_action( 'single_template', array( $this, 'exrb_process_review_page_template' ) );
 	}
 
@@ -51,6 +52,17 @@ class ExcursionBooking{
 		// Localisation
 		load_plugin_textdomain( 'excursion_booking', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
+	}
+
+
+	/**
+	 * Add styl to admin pages
+	 */
+	public function exrb_admin_style($hook){
+		global $typenow;
+		if(($typenow == 'exrb_order') || ($typenow == 'excursion')) {
+			wp_enqueue_style( 'exrb_admin_css', plugins_url('css/exrb-admin.css', __FILE__) );
+		}
 	}
 
 	/**

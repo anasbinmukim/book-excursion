@@ -20,6 +20,31 @@ function exrb_process_backend_data_saving(){
     } else {
         if(isset($_POST['exrb_general_settings_submit'])){
            update_option('exrb_excursion_slug', sanitize_title_with_dashes($_POST['exrb_excursion_slug']));
+           update_option('exrb_cat_slug', sanitize_title_with_dashes($_POST['exrb_cat_slug']));
+           update_option('exrb_tag_slug', sanitize_title_with_dashes($_POST['exrb_tag_slug']));
+           update_option('exrb_order_slug', sanitize_title_with_dashes($_POST['exrb_order_slug']));
+           add_action( 'admin_notices', 'notice_data_successfully_saved');
+        }
+    }
+
+    if ( isset($_POST['exrb_email_settings_submit']) && (! isset( $_POST['exrb_email_settings_nonce'] ) || ! wp_verify_nonce( $_POST['exrb_email_settings_nonce'], 'exrb_email_settings_action' ) ) ) {
+      //Verifiy not match..
+      add_action( 'admin_notices', 'notice_data_nonce_verify_required');
+    } else {
+        if(isset($_POST['exrb_email_settings_submit'])){
+
+           //Order receive notification
+           update_option('exrb_order_notifi_subject', sanitize_text_field($_POST['exrb_order_notifi_subject']));
+           update_option('exrb_order_notifi_message', wp_kses_post($_POST['exrb_order_notifi_message']));
+
+           //Booking Confirmation notification
+           update_option('exrb_conf_notifi_subject', sanitize_text_field($_POST['exrb_conf_notifi_subject']));
+           update_option('exrb_conf_notifi_message', wp_kses_post($_POST['exrb_conf_notifi_message']));
+
+           //Email template settings
+           update_option('exrb_email_from_name', sanitize_text_field($_POST['exrb_email_from_name']));
+           update_option('exrb_email_from_email', sanitize_text_field($_POST['exrb_email_from_email']));
+           update_option('exrb_email_template', wp_kses_post($_POST['exrb_email_template']));
            add_action( 'admin_notices', 'notice_data_successfully_saved');
         }
     }
